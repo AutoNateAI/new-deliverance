@@ -1,20 +1,37 @@
 ---
 import { siteConfig } from "../data/site";
 
-const homeHref = import.meta.env.BASE_URL;
+const baseUrl = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+const withBase = (href: string) =>
+  href === "/" ? baseUrl : `${baseUrl}${href.replace(/^\//, "")}`;
 ---
 
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="brand" href={homeHref}>
+    <a class="brand" href={baseUrl}>
       <span class="brand-mark">ND</span>
-      <span>{siteConfig.name}</span>
+      <span class="brand-copy">
+        <strong>{siteConfig.shortName}</strong>
+        <small>Everybody Is Somebody</small>
+      </span>
     </a>
+
     <nav class="nav" aria-label="Primary navigation">
       {
-        siteConfig.nav.map((item) => (
-          <a href={item.href}>{item.label}</a>
-        ))
+        siteConfig.nav.map((item) => {
+          const target = withBase(item.href);
+          const isActive =
+            item.href === "/"
+              ? currentPath === baseUrl || currentPath === "/"
+              : currentPath.includes(item.href.replace(/\/$/, ""));
+
+          return (
+            <a class:list={[isActive && "is-active"]} href={target}>
+              {item.label}
+            </a>
+          );
+        })
       }
     </nav>
   </div>

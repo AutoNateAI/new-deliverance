@@ -1,0 +1,51 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { siteConfig } from "../data/site";
+---
+
+<BaseLayout
+  title={`Contact | ${siteConfig.name}`}
+  description="Contact New Deliverance Praise & Worship Center, plan a visit, or ask for prayer."
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="shell page-hero-inner">
+        <p class="eyebrow">Contact</p>
+        <h1>Make it easy for people to visit, ask for prayer, and connect.</h1>
+        <p class="body-copy">
+          This page gives the ministry a simple digital contact point now, with room to
+          add forms, prayer requests, and Firebase-backed workflows later.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="triple-grid">
+        {
+          siteConfig.contactCards.map((item) => (
+            <article class="action-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="contact-banner">
+        <div>
+          <p class="eyebrow">Church Info</p>
+          <h2>{siteConfig.addressLine1}</h2>
+          <p class="body-copy">{siteConfig.cityStateZip}</p>
+          <p class="body-copy">{siteConfig.email}</p>
+        </div>
+        <a class="button button-primary" href={`mailto:${siteConfig.email}`}>Email The Church</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

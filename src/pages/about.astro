@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { siteConfig } from "../data/site";
+---
+
+<BaseLayout
+  title={`About | ${siteConfig.name}`}
+  description="Learn about the heart, mission, vision, and leadership of New Deliverance Praise & Worship Center."
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="shell page-hero-inner">
+        <p class="eyebrow">About The Church</p>
+        <h1>Built around worship, belonging, and spiritual growth.</h1>
+        <p class="body-copy">
+          New Deliverance is being presented online as a place where people can encounter
+          God, connect with a church family, and step into the life of the ministry.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="split-feature">
+        <article class="portrait-card">
+          <img
+            class="portrait-photo"
+            src={siteConfig.leaderImage}
+            alt="Illustrated portrait of Apostle T.D. Robinson."
+          />
+        </article>
+        <div class="feature-copy">
+          <div class="mini-stack">
+            <h2>{siteConfig.mission.title}</h2>
+            <p class="body-copy">{siteConfig.mission.body}</p>
+          </div>
+          <div class="mini-stack">
+            <h2>{siteConfig.vision.title}</h2>
+            <p class="body-copy">{siteConfig.vision.body}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section band">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">What Visitors Should Understand</p>
+          <h2>The site should make the ministry legible to someone arriving cold.</h2>
+        </div>
+        <div class="story-grid">
+          {
+            siteConfig.storyPoints.map((item) => (
+              <article class="story-card">
+                <p>{item}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="leader-banner">
+        <img
+          class="leader-thumb"
+          src={siteConfig.heroImage}
+          alt="Apostle T.D. Robinson preaching."
+        />
+        <div>
+          <p class="eyebrow">Leadership</p>
+          <h2>{siteConfig.welcome.leader}</h2>
+          <p class="body-copy">{siteConfig.welcome.role}</p>
+        </div>
+        <blockquote class="leader-quote">“{siteConfig.welcome.quote}”</blockquote>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

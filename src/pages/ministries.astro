@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { siteConfig } from "../data/site";
+---
+
+<BaseLayout
+  title={`Ministries | ${siteConfig.name}`}
+  description="Explore the ministries of New Deliverance Praise & Worship Center."
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="shell page-hero-inner">
+        <p class="eyebrow">Ministries</p>
+        <h1>Places to serve, connect, and grow in faith.</h1>
+        <p class="body-copy">
+          This page gives the church room to describe its ministry areas clearly and
+          expand them over time as programs and leaders are documented.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="card-grid">
+        {
+          siteConfig.ministries.map((item) => (
+            <article class="content-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

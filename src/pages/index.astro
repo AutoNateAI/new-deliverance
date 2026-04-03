@@ -2,59 +2,66 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import { organizationJsonLd, siteConfig } from "../data/site";
+import { churchJsonLd, siteConfig } from "../data/site";
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={siteConfig.title} description={siteConfig.description}>
   <Fragment slot="head">
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(churchJsonLd)} />
   </Fragment>
 
   <Header />
 
   <main>
-    <section class="hero">
+    <section class="hero hero-home">
+      <div class="hero-media">
+        <img
+          src={siteConfig.heroImage}
+          alt="Apostle T.D. Robinson preaching in a maroon robe at the pulpit."
+        />
+      </div>
+      <div class="hero-backdrop"></div>
       <div class="shell hero-grid">
-        <div>
-          <p class="eyebrow">Launch clean. Scale deliberately.</p>
-          <h1>
-            A high-trust website foundation for <span>New Deliverance</span>.
-          </h1>
-          <p class="lead">
-            This project is set up for strong SEO, fast static delivery, and future
-            expansion into richer content or Firebase-backed workflows without
-            replacing the frontend stack.
+        <div class="hero-copy">
+          <p class="eyebrow">Welcome To Our Home</p>
+          <h1>{siteConfig.name}</h1>
+          <p class="lead">{siteConfig.tagline}</p>
+          <p class="body-copy">
+            Join a ministry rooted in worship, biblical truth, and the belief that every
+            person matters in the presence of God.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Start shaping the story</a>
-            <a class="button button-secondary" href="#services">See the architecture</a>
+            <a class="button button-primary" href={`${baseUrl}watch/`}>Watch Us Live</a>
+            <a class="button button-secondary" href={`${baseUrl}contact/`}>Plan Your Visit</a>
           </div>
         </div>
 
-        <aside class="hero-card">
-          <p class="card-kicker">Deployment pipeline</p>
-          <h2>Main branch stays editorial. Pages stays deployable.</h2>
-          <ul class="timeline">
-            <li>
-              <strong>Push to `main`</strong>
-              <span>Content, components, and structure stay in one predictable branch.</span>
-            </li>
-            <li>
-              <strong>Build static output</strong>
-              <span>Astro checks types, builds HTML, and emits a lean `dist/` bundle.</span>
-            </li>
-            <li>
-              <strong>Publish to `gh-pages`</strong>
-              <span>The deployment workflow updates the public site with no manual steps.</span>
-            </li>
-          </ul>
+        <aside class="hero-panel">
+          <p class="card-kicker">Service Times</p>
+          <div class="schedule-stack">
+            {
+              siteConfig.serviceTimes.map((item) => (
+                <article class="schedule-card">
+                  <strong>{item.label}</strong>
+                  <span>{item.time}</span>
+                  <small>{item.detail}</small>
+                </article>
+              ))
+            }
+          </div>
+          <div class="location-badge">
+            <strong>{siteConfig.addressLine1}</strong>
+            <span>{siteConfig.cityStateZip}</span>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section class="stats shell" aria-label="Project advantages">
+    <section class="stats shell">
       {
-        siteConfig.stats.map((item) => (
+        siteConfig.heroStats.map((item) => (
           <article class="stat-card">
             <strong>{item.value}</strong>
             <span>{item.label}</span>
@@ -63,34 +70,38 @@ import { organizationJsonLd, siteConfig } from "../data/site";
       }
     </section>
 
-    <section class="section shell" id="services">
+    <section class="section shell">
       <div class="section-heading">
-        <p class="eyebrow">Services</p>
-        <h2>Built to communicate clearly before it gets complicated.</h2>
+        <p class="eyebrow">First Impression</p>
+        <h2>{siteConfig.welcome.title}</h2>
       </div>
-      <div class="card-grid">
-        {
-          siteConfig.services.map((service) => (
-            <article class="content-card">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </article>
-          ))
-        }
+      <div class="split-feature">
+        <article class="portrait-card">
+          <img
+            class="portrait-photo"
+            src={siteConfig.heroImage}
+            alt="Apostle T.D. Robinson ministering during service."
+          />
+        </article>
+        <div class="feature-copy">
+          <p class="body-copy">{siteConfig.welcome.body}</p>
+          <blockquote class="highlight-quote">“{siteConfig.welcome.quote}”</blockquote>
+          <p class="signature">{siteConfig.welcome.leader}</p>
+          <p class="signature-sub">{siteConfig.welcome.role}</p>
+        </div>
       </div>
     </section>
 
-    <section class="section section-accent" id="process">
+    <section class="section band">
       <div class="shell">
         <div class="section-heading">
-          <p class="eyebrow">Process</p>
-          <h2>A structure that can handle iteration without collapsing into chaos.</h2>
+          <p class="eyebrow">What The Site Needs To Do</p>
+          <h2>Show the life of the ministry clearly and quickly.</h2>
         </div>
-        <div class="process-grid">
+        <div class="card-grid">
           {
-            siteConfig.process.map((item) => (
-              <article class="process-card">
-                <p class="process-step">{item.step}</p>
+            siteConfig.pillars.map((item) => (
+              <article class="content-card">
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </article>
@@ -100,21 +111,49 @@ import { organizationJsonLd, siteConfig } from "../data/site";
       </div>
     </section>
 
-    <section class="section shell" id="proof">
+    <section class="section shell">
       <div class="section-heading">
-        <p class="eyebrow">Proof</p>
-        <h2>Architecture decisions that support both polish and maintainability.</h2>
+        <p class="eyebrow">Ministries</p>
+        <h2>Areas where people can belong, serve, and grow.</h2>
       </div>
-      <div class="quote-grid">
+      <div class="card-grid">
         {
-          siteConfig.proof.map((item) => (
-            <article class="quote-card">
-              <p class="quote">“{item.quote}”</p>
-              <p class="quote-author">{item.name}</p>
-              <p class="quote-role">{item.role}</p>
+          siteConfig.ministries.slice(0, 3).map((item) => (
+            <article class="content-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
             </article>
           ))
         }
+      </div>
+      <div class="section-cta">
+        <a class="button button-secondary" href={`${baseUrl}ministries/`}>Explore All Ministries</a>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading">
+        <p class="eyebrow">Watch</p>
+        <h2>Make room for live services, clips, and message replays.</h2>
+      </div>
+      <div class="watch-layout">
+        <article class="media-feature">
+          <img
+            src={siteConfig.heroImage}
+            alt="Apostle T.D. Robinson preaching with congregation visible behind him."
+          />
+        </article>
+        <div class="triple-grid">
+        {
+          siteConfig.watchCards.map((item) => (
+            <article class="action-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <a href={item.href}>{item.cta}</a>
+            </article>
+          ))
+        }
+        </div>
       </div>
     </section>
 
@@ -122,7 +161,7 @@ import { organizationJsonLd, siteConfig } from "../data/site";
       <div class="faq-layout">
         <div class="section-heading">
           <p class="eyebrow">FAQ</p>
-          <h2>Answers for the decisions already implied by the stack.</h2>
+          <h2>Helpful answers for first-time visitors and online guests.</h2>
         </div>
         <div class="faq-list">
           {
@@ -137,15 +176,16 @@ import { organizationJsonLd, siteConfig } from "../data/site";
       </div>
     </section>
 
-    <section class="section shell" id="contact">
+    <section class="section shell">
       <div class="contact-banner">
         <div>
-          <p class="eyebrow">Next move</p>
-          <h2>Start with the homepage story, then expand into the pages that matter.</h2>
+          <p class="eyebrow">Next Steps</p>
+          <h2>Come visit, watch online, or reach out for prayer and connection.</h2>
         </div>
-        <a class="button button-primary" href="mailto:hello@newdeliverance.com">
-          hello@newdeliverance.com
-        </a>
+        <div class="inline-actions">
+          <a class="button button-primary" href={`${baseUrl}contact/`}>Contact The Church</a>
+          <a class="button button-secondary" href={`${baseUrl}give/`}>Give Online</a>
+        </div>
       </div>
     </section>
   </main>

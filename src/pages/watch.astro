@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { siteConfig } from "../data/site";
+---
+
+<BaseLayout
+  title={`Watch | ${siteConfig.name}`}
+  description="Watch live services, worship clips, and messages from New Deliverance Praise & Worship Center."
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="shell page-hero-inner">
+        <p class="eyebrow">Watch & Media</p>
+        <h1>Give online visitors a real feel for the room.</h1>
+        <p class="body-copy">
+          The next phase of this page is connecting the church’s active Facebook, TikTok,
+          or stream destinations so worship clips and live services can be featured here.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="triple-grid">
+        {
+          siteConfig.watchCards.map((item) => (
+            <article class="action-card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <a href={item.href}>{item.cta}</a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="social-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Social Channels</p>
+          <h2>Use the church’s existing platforms as the digital front porch.</h2>
+        </div>
+        <div class="story-grid">
+          {
+            siteConfig.socialLinks.map((item) => (
+              <article class="story-card">
+                <h3>{item.label}</h3>
+                <p>{item.note}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

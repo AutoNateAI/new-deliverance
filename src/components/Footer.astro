@@ -1,16 +1,50 @@
 ---
+import { siteConfig } from "../data/site";
+
 const year = new Date().getFullYear();
+const baseUrl = import.meta.env.BASE_URL;
+const withBase = (href: string) =>
+  href === "/" ? baseUrl : `${baseUrl}${href.replace(/^\//, "")}`;
 ---
 
 <footer class="site-footer">
-  <div class="shell footer-inner">
-    <div>
+  <div class="shell footer-grid">
+    <div class="footer-brand-block">
       <p class="eyebrow">New Deliverance</p>
-      <p class="footer-copy">
-        Static-first architecture for a site that can grow into content, campaigns,
-        and Firebase-backed features without a rebuild.
-      </p>
+      <h2>{siteConfig.name}</h2>
+      <p class="footer-copy">{siteConfig.tagline}</p>
     </div>
-    <p class="footer-meta">© {year} New Deliverance. Built with Astro and GitHub Pages.</p>
+
+    <div>
+      <p class="footer-title">Visit</p>
+      <p>{siteConfig.addressLine1}</p>
+      <p>{siteConfig.cityStateZip}</p>
+    </div>
+
+    <div>
+      <p class="footer-title">Gather</p>
+      {
+        siteConfig.serviceTimes.map((item) => (
+          <p>
+            <strong>{item.label}:</strong> {item.time}
+          </p>
+        ))
+      }
+    </div>
+
+    <div>
+      <p class="footer-title">Explore</p>
+      {
+        siteConfig.nav.map((item) => (
+          <p>
+            <a href={withBase(item.href)}>{item.label}</a>
+          </p>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="shell footer-bottom">
+    <p>© {year} {siteConfig.name}. Built to support ministry, outreach, and growth.</p>
   </div>
 </footer>

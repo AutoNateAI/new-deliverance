@@ -1,95 +1,191 @@
 export const siteConfig = {
-  name: "New Deliverance",
-  title: "New Deliverance | Built for clarity, care, and conversion",
+  name: "New Deliverance Praise & Worship Center",
+  shortName: "NDPWC",
+  title: "New Deliverance Praise & Worship Center | Everybody Is Somebody",
   description:
-    "A polished, search-friendly website foundation for New Deliverance, designed to scale from a focused landing page into a full content and service platform.",
+    "New Deliverance Praise & Worship Center in Sikeston, Missouri. Join us for worship, watch services, learn about our ministries, and stay connected with the church community.",
   url: "https://autonateai.github.io/new-deliverance/",
-  ogImage: "/social-card.svg",
+  ogImage: "/media/og-homepage.png",
+  heroImage: "/media/uncle-trevor-preaching.jpg",
+  leaderImage: "/media/uncle-trevor-illustrated.jpg",
+  tagline: "The Church Where Everybody Is Somebody.",
+  addressLine1: "817 West Malone Ave",
+  cityStateZip: "Sikeston, MO 63801",
+  email: "hello@newdeliverance.com",
+  phone: "(573) 000-0000",
+  watchHref: "#",
+  donateHref: "#",
+  nonprofitHref: "#",
+  socialLinks: [
+    { label: "Facebook", href: "#", note: "Primary community updates and clips" },
+    { label: "TikTok", href: "#", note: "Short-form moments and ministry highlights" },
+    { label: "YouTube", href: "#", note: "Full services and archived messages" },
+  ],
   nav: [
-    { label: "Services", href: "#services" },
-    { label: "Process", href: "#process" },
-    { label: "Proof", href: "#proof" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about/" },
+    { label: "Ministries", href: "/ministries/" },
+    { label: "Watch", href: "/watch/" },
+    { label: "Give", href: "/give/" },
+    { label: "Contact", href: "/contact/" },
   ],
-  stats: [
-    { value: "Fast", label: "Static delivery on GitHub Pages" },
-    { value: "SEO", label: "Structured metadata and sitemap baked in" },
-    { value: "Ready", label: "Firebase can slot in when needed" },
+  serviceTimes: [
+    { label: "Sunday Worship", time: "10:30 AM", detail: "Main sanctuary service" },
+    { label: "Midweek Manna", time: "7:00 PM", detail: "Midweek word and fellowship" },
   ],
-  services: [
-    {
-      title: "Message Clarity",
-      description:
-        "Turn the core offer into headline-ready language, clear calls to action, and page structures that help people understand what happens next.",
-    },
-    {
-      title: "Trust Building",
-      description:
-        "Layer in testimonials, outcomes, FAQs, and proof points without turning the experience into a wall of generic marketing copy.",
-    },
-    {
-      title: "Scalable Content",
-      description:
-        "Add guides, announcements, case studies, and campaign landing pages without rewriting the foundation every time the site grows.",
-    },
+  heroStats: [
+    { value: "Sikeston", label: "Rooted in local community" },
+    { value: "Live", label: "Ready for worship clips and streams" },
+    { value: "Built", label: "Structured for growth and outreach" },
   ],
-  process: [
+  pillars: [
     {
-      step: "01",
-      title: "Define the story",
+      title: "Spirit-led worship",
       description:
-        "Align the homepage, service pages, and future content around one clear positioning narrative.",
+        "Create space for people to encounter God through praise, teaching, prayer, and a church family that actually welcomes them in.",
     },
     {
-      step: "02",
-      title: "Build modular sections",
+      title: "Visible ministry life",
       description:
-        "Use reusable Astro components and content-driven data so new pages stay consistent and easy to extend.",
+        "Show what is happening inside the church, not just what the church says it believes, so visitors can feel the energy before they ever arrive.",
     },
     {
-      step: "03",
-      title: "Launch and iterate",
+      title: "Community connection",
       description:
-        "Deploy on every push to main, then add analytics, forms, scheduling, or Firebase-backed features only when they become necessary.",
+        "Make it easy for people to find the church, watch online, give, ask for prayer, and step into active fellowship.",
     },
   ],
-  proof: [
+  welcome: {
+    title: "A church presence that feels warm, alive, and rooted in purpose.",
+    body:
+      "This site is being shaped around the ministry’s real needs: a strong first impression, clear service information, worship media, leadership visibility, and simple paths for people to connect with the church community.",
+    quote:
+      "Whether you are searching for answers, a new church home, or simply a place to belong, know that here, everybody is somebody.",
+    leader: "Apostle T.D. Robinson",
+    role: "Senior Pastor & Founder",
+  },
+  mission: {
+    title: "Our Mission",
+    body:
+      "To empower the believer, impact the community, and inspire the world through life-changing preaching, praise, and practical ministry.",
+  },
+  vision: {
+    title: "Our Vision",
+    body:
+      "To cultivate a sanctuary where spiritual gifts are nurtured, people are restored, and every individual is reminded of their God-given value and purpose.",
+  },
+  storyPoints: [
+    "A visible digital home for the ministry and its message.",
+    "A place to introduce visitors to the church, the leader, and the ministries.",
+    "A platform for worship clips, live viewing links, giving, and future nonprofit outreach.",
+  ],
+  ministries: [
     {
-      quote:
-        "This foundation keeps the visual layer sharp while leaving the architecture disciplined enough for real growth.",
-      name: "Site Architecture",
-      role: "Astro + GitHub Pages",
+      title: "Worship & Praise",
+      description:
+        "Supporting the sound, flow, and spiritual atmosphere of service through music, praise, and live worship leadership.",
     },
     {
-      quote:
-        "The content model is simple on purpose: clear sections now, expandable page and data patterns later.",
-      name: "Publishing Workflow",
-      role: "Main -> gh-pages",
+      title: "Youth & Family",
+      description:
+        "Creating room for young people and families to grow in faith together and stay connected across generations.",
+    },
+    {
+      title: "Community Outreach",
+      description:
+        "Serving people beyond the sanctuary through practical care, local support, and ministry that moves into the community.",
+    },
+    {
+      title: "Prayer & Care",
+      description:
+        "Making sure people can reach out for prayer, encouragement, and spiritual covering when life gets heavy.",
+    },
+    {
+      title: "Media Ministry",
+      description:
+        "Capturing services, clips, and digital content so the church’s message can travel farther than the room.",
+    },
+    {
+      title: "Leadership Development",
+      description:
+        "Helping people grow in responsibility, service, and spiritual maturity as they step deeper into ministry.",
+    },
+  ],
+  watchCards: [
+    {
+      title: "Watch services live",
+      description:
+        "Use this section for the livestream destination once the active streaming platform is confirmed.",
+      cta: "Connect live stream",
+      href: "#",
+    },
+    {
+      title: "Share worship clips",
+      description:
+        "Feature short clips from Facebook, TikTok, or YouTube Shorts to help visitors feel the energy of the room.",
+      cta: "Add worship media",
+      href: "#",
+    },
+    {
+      title: "Archive messages",
+      description:
+        "Create an ongoing home for sermons, replay links, and standout moments from recent services.",
+      cta: "Build message archive",
+      href: "#",
+    },
+  ],
+  givingReasons: [
+    "Support ministry work inside and outside the sanctuary.",
+    "Help the church invest in outreach, care, and future programs.",
+    "Create a clear path for online generosity once the giving platform is connected.",
+  ],
+  contactCards: [
+    {
+      title: "Visit in person",
+      body: "Join us in Sikeston for worship, fellowship, and a church environment centered on presence and purpose.",
+    },
+    {
+      title: "Ask for prayer",
+      body: "Use this page as the future home for prayer requests, ministry follow-up, and pastoral contact.",
+    },
+    {
+      title: "Stay updated",
+      body: "Direct people to social channels and livestream destinations until fuller communication tools are added.",
     },
   ],
   faqs: [
     {
-      question: "Why Astro for this project?",
-      answer:
-        "It ships static HTML by default, performs well, gives strong SEO fundamentals, and still leaves room to add interactive islands only where they matter.",
+      question: "Where is New Deliverance located?",
+      answer: "New Deliverance Praise & Worship Center is located at 817 West Malone Ave, Sikeston, Missouri 63801.",
     },
     {
-      question: "Can backend features be added later?",
+      question: "What should a first-time visitor expect?",
       answer:
-        "Yes. Firebase is a clean next step for forms, auth, lightweight data storage, and admin workflows without replacing the frontend architecture.",
+        "A worship-centered service, a welcoming environment, and a church culture built around the belief that everybody is somebody.",
     },
     {
-      question: "Will this work on GitHub Pages?",
+      question: "Can I watch online before visiting in person?",
       answer:
-        "Yes. The build output is static, and the deployment workflow publishes the generated site to a dedicated gh-pages branch on every push to main.",
+        "Yes. This site is structured to feature live viewing and worship clips as those media links are finalized.",
     },
   ],
 } as const;
 
-export const organizationJsonLd = {
+export const churchJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "Church",
   name: siteConfig.name,
   url: siteConfig.url,
   description: siteConfig.description,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  slogan: siteConfig.tagline,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.addressLine1,
+    addressLocality: "Sikeston",
+    addressRegion: "MO",
+    postalCode: "63801",
+    addressCountry: "US",
+  },
 };

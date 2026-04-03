@@ -1,0 +1,50 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { siteConfig } from "../data/site";
+---
+
+<BaseLayout
+  title={`Give | ${siteConfig.name}`}
+  description="Support New Deliverance Praise & Worship Center through online giving."
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="shell page-hero-inner">
+        <p class="eyebrow">Give</p>
+        <h1>Prepare a clear online path for generosity.</h1>
+        <p class="body-copy">
+          This page is ready for the church’s giving platform once the live donation link
+          is confirmed.
+        </p>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="split-callout">
+        <div class="feature-copy">
+          <h2>Why giving matters</h2>
+          <div class="mini-stack">
+            {
+              siteConfig.givingReasons.map((item) => (
+                <p class="body-copy">{item}</p>
+              ))
+            }
+          </div>
+        </div>
+        <article class="hero-panel">
+          <p class="card-kicker">Online Giving</p>
+          <h3>Connect the active giving platform here.</h3>
+          <p class="body-copy">
+            Replace this placeholder with Givelify, Tithe.ly, Cash App details, or the
+            church’s preferred giving system.
+          </p>
+          <a class="button button-primary" href={siteConfig.donateHref}>Add donation link</a>
+        </article>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
