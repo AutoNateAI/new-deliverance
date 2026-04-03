@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import { churchJsonLd, siteConfig } from "../data/site";
 
 const baseUrl = import.meta.env.BASE_URL;
+const asset = (path: string) => `${baseUrl}${path.replace(/^\//, "")}`;
 ---
 
 <BaseLayout title={siteConfig.title} description={siteConfig.description}>
@@ -18,7 +19,7 @@ const baseUrl = import.meta.env.BASE_URL;
     <section class="hero hero-home">
       <div class="hero-media">
         <img
-          src={siteConfig.heroImage}
+          src={asset(siteConfig.heroImage)}
           alt="Apostle T.D. Robinson preaching in a maroon robe at the pulpit."
         />
       </div>
@@ -79,7 +80,7 @@ const baseUrl = import.meta.env.BASE_URL;
         <article class="portrait-card">
           <img
             class="portrait-photo"
-            src={siteConfig.heroImage}
+            src={asset(siteConfig.heroImage)}
             alt="Apostle T.D. Robinson ministering during service."
           />
         </article>
@@ -139,7 +140,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <div class="watch-layout">
         <article class="media-feature">
           <img
-            src={siteConfig.heroImage}
+            src={asset(siteConfig.heroImage)}
             alt="Apostle T.D. Robinson preaching with congregation visible behind him."
           />
         </article>
