@@ -15,6 +15,7 @@ const assetBase = import.meta.env.BASE_URL;
 const resolvedImage = image.startsWith("http")
   ? new URL(image)
   : new URL(`${assetBase}${image.replace(/^\//, "")}`, Astro.site);
+const imageType = image.endsWith(".jpg") || image.endsWith(".jpeg") ? "image/jpeg" : "image/png";
 ---
 
 <!doctype html>
@@ -42,7 +43,8 @@ const resolvedImage = image.startsWith("http")
     <meta property="og:image:secure_url" content={resolvedImage} />
     <meta property="og:image:width" content="1536" />
     <meta property="og:image:height" content="1024" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content={imageType} />
+    <meta property="og:image:alt" content="Apostle T.D. Robinson preaching with raised hands, rendered in a cinematic maroon-and-gold social preview image." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

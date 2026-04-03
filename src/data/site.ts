@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "New Deliverance Praise & Worship Center in Sikeston, Missouri. Join us for worship, watch services, learn about our ministries, and stay connected with the church community.",
   url: "https://autonateai.github.io/new-deliverance/",
-  ogImage: "/media/og-homepage.png",
+  ogImage: "/media/og-homepage-v2.jpg",
   heroImage: "/media/uncle-trevor-preaching.jpg",
   leaderImage: "/media/uncle-trevor-illustrated.jpg",
   tagline: "The Church Where Everybody Is Somebody.",
