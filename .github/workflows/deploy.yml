@@ -37,10 +37,24 @@ jobs:
         run: npm run build
 
       - name: Publish dist to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          force_orphan: true
-          enable_jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin gh-pages
+          rm -rf .deploy
+          git worktree add .deploy gh-pages
+          find .deploy -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a dist/. .deploy/
+          touch .deploy/.nojekyll
+          cd .deploy
+          if [ -n "$(git status --short)" ]; then
+            git add --all
+            git commit -m "Deploy from ${GITHUB_SHA}"
+            git push origin gh-pages
+          else
+            echo "No changes to publish."
+          fi
+          cd ..
+          git worktree remove .deploy --force
