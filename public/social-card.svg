@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8f2ea" />
+      <stop offset="100%" stop-color="#efe2cf" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#a3412e" />
+      <stop offset="100%" stop-color="#732819" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1010" cy="110" r="160" fill="#e8d7c0" opacity="0.8" />
+  <circle cx="1080" cy="520" r="210" fill="#f1e8db" opacity="0.95" />
+  <rect x="80" y="84" width="164" height="164" rx="42" fill="url(#accent)" />
+  <path d="M126 204V128h20l52 52v-52h20v76h-19L146 153.7V204z" fill="#fff7f0" />
+  <text x="80" y="362" fill="#1f2430" font-family="Georgia, serif" font-size="86" font-weight="700">
+    New Deliverance
+  </text>
+  <text x="80" y="436" fill="#5f6777" font-family="Arial, sans-serif" font-size="32">
+    SEO-ready Astro architecture for a polished GitHub Pages launch.
+  </text>
+  <text x="80" y="488" fill="#5f6777" font-family="Arial, sans-serif" font-size="32">
+    Static-first now. Firebase-ready when backend features actually matter.
+  </text>
+</svg>

@@ -1,0 +1,21 @@
+---
+import { siteConfig } from "../data/site";
+
+const homeHref = import.meta.env.BASE_URL;
+---
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href={homeHref}>
+      <span class="brand-mark">ND</span>
+      <span>{siteConfig.name}</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      {
+        siteConfig.nav.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))
+      }
+    </nav>
+  </div>
+</header>

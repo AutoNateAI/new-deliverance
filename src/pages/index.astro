@@ -1,0 +1,154 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { organizationJsonLd, siteConfig } from "../data/site";
+---
+
+<BaseLayout title={siteConfig.title} description={siteConfig.description}>
+  <Fragment slot="head">
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(organizationJsonLd)} />
+  </Fragment>
+
+  <Header />
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Launch clean. Scale deliberately.</p>
+          <h1>
+            A high-trust website foundation for <span>New Deliverance</span>.
+          </h1>
+          <p class="lead">
+            This project is set up for strong SEO, fast static delivery, and future
+            expansion into richer content or Firebase-backed workflows without
+            replacing the frontend stack.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Start shaping the story</a>
+            <a class="button button-secondary" href="#services">See the architecture</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <p class="card-kicker">Deployment pipeline</p>
+          <h2>Main branch stays editorial. Pages stays deployable.</h2>
+          <ul class="timeline">
+            <li>
+              <strong>Push to `main`</strong>
+              <span>Content, components, and structure stay in one predictable branch.</span>
+            </li>
+            <li>
+              <strong>Build static output</strong>
+              <span>Astro checks types, builds HTML, and emits a lean `dist/` bundle.</span>
+            </li>
+            <li>
+              <strong>Publish to `gh-pages`</strong>
+              <span>The deployment workflow updates the public site with no manual steps.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stats shell" aria-label="Project advantages">
+      {
+        siteConfig.stats.map((item) => (
+          <article class="stat-card">
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </article>
+        ))
+      }
+    </section>
+
+    <section class="section shell" id="services">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2>Built to communicate clearly before it gets complicated.</h2>
+      </div>
+      <div class="card-grid">
+        {
+          siteConfig.services.map((service) => (
+            <article class="content-card">
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section section-accent" id="process">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Process</p>
+          <h2>A structure that can handle iteration without collapsing into chaos.</h2>
+        </div>
+        <div class="process-grid">
+          {
+            siteConfig.process.map((item) => (
+              <article class="process-card">
+                <p class="process-step">{item.step}</p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="proof">
+      <div class="section-heading">
+        <p class="eyebrow">Proof</p>
+        <h2>Architecture decisions that support both polish and maintainability.</h2>
+      </div>
+      <div class="quote-grid">
+        {
+          siteConfig.proof.map((item) => (
+            <article class="quote-card">
+              <p class="quote">“{item.quote}”</p>
+              <p class="quote-author">{item.name}</p>
+              <p class="quote-role">{item.role}</p>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="faq-layout">
+        <div class="section-heading">
+          <p class="eyebrow">FAQ</p>
+          <h2>Answers for the decisions already implied by the stack.</h2>
+        </div>
+        <div class="faq-list">
+          {
+            siteConfig.faqs.map((item) => (
+              <details class="faq-item">
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="contact">
+      <div class="contact-banner">
+        <div>
+          <p class="eyebrow">Next move</p>
+          <h2>Start with the homepage story, then expand into the pages that matter.</h2>
+        </div>
+        <a class="button button-primary" href="mailto:hello@newdeliverance.com">
+          hello@newdeliverance.com
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

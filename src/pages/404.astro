@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const homeHref = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Page Not Found | New Deliverance"
+  description="The page you requested could not be found."
+>
+  <main class="error-page shell">
+    <p class="eyebrow">404</p>
+    <h1>That page does not exist.</h1>
+    <p class="lead">
+      The route may have moved, or the link may be outdated. Use the homepage to get
+      back on track.
+    </p>
+    <a class="button button-primary" href={homeHref}>Return home</a>
+  </main>
+</BaseLayout>
