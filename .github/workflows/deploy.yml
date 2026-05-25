@@ -32,8 +32,8 @@ jobs:
       - name: Build site
         env:
           NODE_ENV: production
-          PUBLIC_BASE_PATH: /new-deliverance
-          SITE_URL: https://autonateai.github.io/new-deliverance
+          PUBLIC_BASE_PATH: /
+          SITE_URL: https://nd.autonateai.com
         run: npm run build
 
       - name: Publish dist to gh-pages

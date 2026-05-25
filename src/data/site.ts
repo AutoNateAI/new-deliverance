@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "New Deliverance Praise & Worship Center | Everybody Is Somebody",
   description:
     "New Deliverance Praise & Worship Center in Sikeston, Missouri. Join us for worship, watch services, learn about our ministries, and stay connected with the church community.",
-  url: "https://autonateai.github.io/new-deliverance/",
+  url: "https://nd.autonateai.com/",
   ogImage: "/media/og-homepage-v2.jpg",
   heroImage: "/media/uncle-trevor-preaching.jpg",
   leaderImage: "/media/uncle-trevor-illustrated.jpg",
